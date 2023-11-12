@@ -4,7 +4,7 @@ import axios from "axios";
 // export const backendBaseURL = "http://localhost:5200";
 
 //production
-export const backendBaseURL = "https://weshare-sqkt.onrender.com/";
+export const backendBaseURL = "https://weshare-sqkt.onrender.com";
 
 const customFetch = axios.create({
   //development

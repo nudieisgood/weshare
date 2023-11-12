@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { IoEarth } from "react-icons/io5";
+import logo from "../assets/logo.png";
 import { FiInstagram, FiTwitter, FiYoutube } from "react-icons/fi";
 import { AiOutlineFacebook } from "react-icons/ai";
 
@@ -22,8 +22,10 @@ const Footer = () => {
     >
       <div className="grid grid grid-cols-2 lg:grid-cols-4 gap-8">
         <div>
-          <Link to="/" className="flex items-center gap-1">
-            <IoEarth className="text-primary text-4xl" />
+          <Link to="/" className="flex items-center gap-2">
+            <div className="w-12">
+              <img src={logo} alt="" />
+            </div>
             <div className="font-semibold text-primary text-2xl">WeShare</div>
           </Link>
           <div className="mt-4 ml-2 flex gap-2 text-gray-700 text-lg items-center">

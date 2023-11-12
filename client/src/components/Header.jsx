@@ -6,7 +6,6 @@ import {
   useNavigate,
 } from "react-router-dom";
 import { useAppContext } from "../context/appContext";
-import { IoEarth } from "react-icons/io5";
 import FormInput from "./FormInput";
 import { useState, useRef, useEffect } from "react";
 import ModalContainer from "./ModalContainer";
@@ -20,6 +19,8 @@ import { PiMagnifyingGlass } from "react-icons/pi";
 import { MdOutlineFormatListBulleted } from "react-icons/md";
 import { IoPersonCircleSharp } from "react-icons/io5";
 import { BiLogOutCircle } from "react-icons/bi";
+
+import logo from "../assets/logo.png";
 
 const Header = () => {
   const { user, logout, loginTestUser } = useAppContext();
@@ -44,8 +45,10 @@ const Header = () => {
   return (
     <section className="-mx-4 sm:-mx-8 lg:-mx-20 px-2 sm:px-8 sticky top-0 bg-white z-20 bg-white">
       <div className="py-3 flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-1">
-          <IoEarth className="text-primary text-4xl" />
+        <Link to="/" className="flex items-center gap-2">
+          <div className="w-12">
+            <img src={logo} alt="" />
+          </div>
           <div className="font-semibold text-primary text-2xl hidden sm:block">
             WeShare
           </div>

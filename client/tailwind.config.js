@@ -8,7 +8,7 @@ export default {
     },
     extend: {
       colors: {
-        primary: "#f5385d",
+        primary: "#e81980",
       },
     },
     minWidth: {
