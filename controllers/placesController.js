@@ -52,6 +52,8 @@ export const getAllPlaces = async (req, res) => {
     ];
   }
 
+  queryObj.isAvailable = true;
+
   const sortObj = { costlyToCheapest: "-price", cheapestToCostly: "price" };
   const sortKey = sortObj[sort];
 
@@ -65,6 +67,7 @@ export const getAllPlaces = async (req, res) => {
     photos: 1,
     price: 1,
     city: 1,
+    isAvailable: 1,
   })
     .populate({ path: "reviews", select: "rating" })
     .sort(sortKey)
@@ -90,16 +93,31 @@ export const getPlaceById = async (req, res) => {
   res.status(StatusCodes.OK).json({ data: place });
 };
 
-export const deletePlaceById = async (req, res) => {
+export const activePlaceById = async (req, res) => {
   const { id } = req.params;
 
-  const removePlace = await Place.findByIdAndDelete(id);
+  const place = await Place.findById(id);
 
-  if (!removePlace) {
+  const updatedPlace = await Place.findByIdAndUpdate(
+    id,
+    {
+      isAvailable: !place.isAvailable,
+    },
+    {
+      new: true,
+    }
+  );
+  console.log(updatedPlace);
+
+  if (!updatedPlace) {
     throw new NotFoundError(`Can not find the Place with ID:${id}`);
   }
 
-  res.status(StatusCodes.OK).json({ msg: "place deleted" });
+  res.status(StatusCodes.OK).json({
+    msg: `place ${
+      updatedPlace.isAvailable ? "is available" : "is not available"
+    } `,
+  });
 };
 
 export const createPlace = async (req, res) => {
@@ -220,3 +238,15 @@ export const editPlace = async (req, res) => {
 
   res.status(StatusCodes.OK).json({ data: updatedPlace });
 };
+
+// export const deletePlaceById = async (req, res) => {
+//   const { id } = req.params;
+
+//   const removePlace = await Place.findByIdAndDelete(id);
+
+//   if (!removePlace) {
+//     throw new NotFoundError(`Can not find the Place with ID:${id}`);
+//   }
+
+//   res.status(StatusCodes.OK).json({ msg: "place deleted" });
+// };

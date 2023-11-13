@@ -2,7 +2,7 @@ import { Form, Link } from "react-router-dom";
 import { FiEdit } from "react-icons/fi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
-const MyPlaceItem = ({ title, _id, photos, description }) => {
+const MyPlaceItem = ({ title, _id, photos, description, isAvailable }) => {
   const shortTitle = title.length > 20 ? title.slice(0, 20) + "  ..." : title;
 
   const shortDescription =
@@ -27,10 +27,22 @@ const MyPlaceItem = ({ title, _id, photos, description }) => {
               >
                 <FiEdit className="text-2xl" />
               </Link>
-              <Form method="post" action={`/account/delete-place/${_id}`}>
-                <button type="submit" className="btn-normal">
-                  <RiDeleteBin6Line className="text-2xl" />
-                </button>
+              <Form
+                className="flex flex-col gap-1"
+                method="post"
+                action={`/account/active-place/${_id}`}
+              >
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <button
+                    type="submit"
+                    className={`w-11 h-6 bg-gray-200 rounded-full :bg-gray-700 ${
+                      isAvailable
+                        ? "after:translate-x-full after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all bg-primary"
+                        : "after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all"
+                    }  `}
+                  ></button>
+                </label>
+                {isAvailable ? <p>房源供應中</p> : <p>房源已下架</p>}
               </Form>
             </div>
           </div>

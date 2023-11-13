@@ -1,10 +1,10 @@
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import { IoMdArrowBack } from "react-icons/io";
-import { IoEarth } from "react-icons/io5";
 import { useState, useEffect } from "react";
 import customFetch from "../utilits/customFetch";
 import { useAppContext } from "../context/appContext";
 import { FormInput, Spinner } from "../components";
+import logo from "../assets/logo.png";
 
 const BookingProcessPage = () => {
   const navigate = useNavigate();
@@ -60,9 +60,13 @@ const BookingProcessPage = () => {
   return (
     <section className="px-4 sm:px-6 lg:px-8 py-4 flex flex-col min-h-screen">
       <div className="py-3 flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-1">
-          <IoEarth className="text-primary text-4xl" />
-          <div className="font-bold capitalize text-2xl">airbnb</div>
+        <Link to="/" className="flex items-center gap-2">
+          <div className="w-12">
+            <img src={logo} alt="" />
+          </div>
+          <div className="font-semibold text-primary text-2xl hidden sm:block">
+            WeShare
+          </div>
         </Link>
       </div>
       <div className="border-t -mx-8 mb-4 mt-2"></div>

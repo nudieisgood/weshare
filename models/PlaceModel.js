@@ -9,11 +9,16 @@ const PlaceSchema = new mongoose.Schema(
     geoLocation: { lat: String, lng: String },
     photos: [String],
     photosId: [String],
+
     description: String,
     extraInfo: String,
     checkInTime: Number,
     checkOutTime: Number,
     maxGuests: Number,
+    isAvailable: {
+      type: Boolean,
+      default: true,
+    },
     perks: [String],
     surroundingEnv: [String],
     price: Number,

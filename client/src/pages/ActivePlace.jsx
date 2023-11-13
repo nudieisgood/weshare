@@ -5,7 +5,7 @@ export const action = async ({ params }) => {
   const { id } = params;
 
   try {
-    await customFetch.delete(`/places/${id}`);
+    await customFetch.put(`/places/${id}`);
     return redirect("/account/places");
   } catch (error) {
     throw {
@@ -15,7 +15,7 @@ export const action = async ({ params }) => {
   }
 };
 
-const DeletePlace = () => {
+const ActivePlace = () => {
   return null;
 };
-export default DeletePlace;
+export default ActivePlace;

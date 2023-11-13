@@ -28,6 +28,15 @@ export const loader = async ({ params }) => {
   try {
     const res = await customFetch(`/places/${id}`);
 
+    if (!res.data.data.isAvailable) {
+      throw {
+        response: {
+          status: 401,
+          data: { msg: "很抱歉，此房源目前是下架狀態。" },
+        },
+      };
+    }
+
     return res.data.data;
   } catch (error) {
     throw {

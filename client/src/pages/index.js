@@ -11,7 +11,7 @@ import PlacePage from "./PlacePage";
 import BookingProcessPage from "./BookingProcessPage";
 import BookingPage from "./BookingPage";
 import Orders from "./Orders";
-import DeletePlace from "./DeletePlace";
+import ActivePlace from "./ActivePlace";
 import MyFavsPage from "./MyFavsPage";
 import ErrorPage from "./ErrorPage";
 export {
@@ -28,7 +28,7 @@ export {
   BookingProcessPage,
   BookingPage,
   Orders,
-  DeletePlace,
+  ActivePlace,
   MyFavsPage,
   ErrorPage,
 };

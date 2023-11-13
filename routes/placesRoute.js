@@ -4,7 +4,8 @@ import {
   getPlaceById,
   getPlaces,
   editPlace,
-  deletePlaceById,
+  // deletePlaceById,
+  activePlaceById,
   getAllPlaces,
   getFavPlaces,
 } from "../controllers/placesController.js";
@@ -33,6 +34,6 @@ router
   .route("/:id")
   .get(getPlaceById)
   .patch(upload.array("photos", 100), validateUpdateMyPlaceInput, editPlace)
-  .delete(deletePlaceById);
+  .put(activePlaceById);
 
 export default router;

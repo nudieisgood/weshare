@@ -17,7 +17,7 @@ import {
   BookingProcessPage,
   BookingPage,
   Orders,
-  DeletePlace,
+  ActivePlace,
   MyFavsPage,
   ErrorPage,
 } from "./pages";
@@ -28,7 +28,7 @@ import { action as registerAction } from "./pages/Register";
 import { action as myPlacesAction } from "./pages/MyPlaces";
 import { action as editPlaceAction } from "./pages/EditPlace";
 import { action as bookingPageAction } from "./pages/BookingPage";
-import { action as deletePlaceAction } from "./pages/DeletePlace";
+import { action as activePlaceAction } from "./pages/ActivePlace";
 import { action as profileAction } from "./pages/Profile";
 import { action as myFavsAction } from "./pages/MyFavsPage";
 
@@ -82,9 +82,9 @@ const router = createBrowserRouter([
             loader: myPlacesLoader,
           },
           {
-            path: "delete-place/:id",
-            element: <DeletePlace />,
-            action: deletePlaceAction,
+            path: "active-place/:id",
+            element: <ActivePlace />,
+            action: activePlaceAction,
           },
           {
             path: "places/:action",
